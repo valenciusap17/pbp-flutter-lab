@@ -83,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
+        titleSpacing: 20,
         title: Text(widget.title),
       ),
       body: Center(
@@ -122,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: Padding(
-        padding: EdgeInsets.only(left: 30.0),
+        padding: EdgeInsets.fromLTRB(40.0, 10.0, 10.0, 10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

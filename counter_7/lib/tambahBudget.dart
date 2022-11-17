@@ -20,6 +20,7 @@ class _TambahBudgetPageState extends State<TambahBudgetPage> {
   List<String> budgetKindVariations = ['Pemasukan', 'Pengeluaran'];
   var controllerTextField = TextEditingController();
   var controllerTextFieldForNum = TextEditingController();
+  var controllerTextFieldForDate = TextEditingController();
 
   // onPressed(BuildContext context) {
   //   var data = BudgetData(
@@ -112,8 +113,9 @@ class _TambahBudgetPageState extends State<TambahBudgetPage> {
                     },
                   ),
                 ),
-                ListTile(
-                  trailing: DropdownButton(
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: DropdownButton(
                     value: _budgetKind,
                     icon: const Icon(Icons.keyboard_arrow_down),
                     items: budgetKindVariations.map((String items) {

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:counter_7/dataBudget.dart';
+import 'package:counter_7/drawer.dart';
+import 'package:counter_7/tambahBudget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,13 +27,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Program Counter'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -41,7 +44,7 @@ class MyHomePage extends StatefulWidget {
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
 
-  final String title;
+  final String title = 'Counter 7 Page';
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -49,7 +52,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  
+
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -63,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _decrementCounter() {
     setState(() {
-      if (_counter <1){
+      if (_counter < 1) {
         ;
       } else {
         _counter--;
@@ -86,6 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
         titleSpacing: 20,
         title: Text(widget.title),
       ),
+      drawer: DrawerApplication(),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -106,15 +110,15 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            (_counter % 2 == 1) ? 
-            Text(
-              'GANJIL',
-              style: TextStyle(color: Colors.blue),
-            ):
-            Text(
-              'GENAP',
-              style: TextStyle(color: Colors.red),
-            ),
+            (_counter % 2 == 1)
+                ? Text(
+                    'GANJIL',
+                    style: TextStyle(color: Colors.blue),
+                  )
+                : Text(
+                    'GENAP',
+                    style: TextStyle(color: Colors.red),
+                  ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
@@ -130,17 +134,16 @@ class _MyHomePageState extends State<MyHomePage> {
             child: FloatingActionButton(
               onPressed: _decrementCounter,
               tooltip: 'Decrement',
-              child: const Icon(Icons.remove),    
+              child: const Icon(Icons.remove),
             ),
           ),
           FloatingActionButton(
             onPressed: _incrementCounter,
             tooltip: 'Increment',
-            child: const Icon(Icons.add),    
+            child: const Icon(Icons.add),
           ),
         ],
       ),
-      
     );
   }
 }

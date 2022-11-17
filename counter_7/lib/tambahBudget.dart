@@ -1,3 +1,5 @@
+import 'dart:html';
+import 'package:intl/intl.dart';
 import 'package:counter_7/main.dart';
 import 'package:counter_7/drawer.dart';
 import 'package:counter_7/dataBudget.dart';
@@ -17,6 +19,7 @@ class _TambahBudgetPageState extends State<TambahBudgetPage> {
   String _budgetKind = "Pemasukan";
   int _amount = 0;
   String _title = "";
+  String _date = "";
   List<String> budgetKindVariations = ['Pemasukan', 'Pengeluaran'];
   var controllerTextField = TextEditingController();
   var controllerTextFieldForNum = TextEditingController();
@@ -131,13 +134,46 @@ class _TambahBudgetPageState extends State<TambahBudgetPage> {
                     },
                   ),
                 ),
+                Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      controller: controllerTextFieldForDate,
+                      decoration: const InputDecoration(
+                          icon: Icon(Icons.calendar_today),
+                          labelText: "Enter Date"),
+                      readOnly: true,
+                      onTap: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(
+                                2000), //DateTime.now() - not to allow to choose before today.
+                            lastDate: DateTime(2101));
+                        if (pickedDate != null) {
+                          print(pickedDate);
+                          String formattedDate =
+                              DateFormat('yyyy-MM-dd').format(pickedDate);
+                          print(formattedDate);
+                          setState(() {
+                            _date =
+                                formattedDate; //set output date to TextField value.
+                          });
+                        } else {
+                          print("Date is not selected");
+                        }
+                      },
+                    )),
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: TextButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        store.allList.add(
-                            store.AllDataKeeped(_title, _amount, _budgetKind));
+                        store.allList.add(store.AllDataKeeped(
+                          _title,
+                          _amount,
+                          _budgetKind,
+                          _date,
+                        ));
                         controllerTextField.clear();
                         controllerTextFieldForNum.clear();
                         Navigator.pushReplacement(

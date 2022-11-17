@@ -62,7 +62,13 @@ class _DataBudgetPageState extends State<DataBudgetPage> {
                                     iteration.kind,
                                   ),
                                 ],
-                              )
+                              ),
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  iteration.date,
+                                ),
+                              ),
                             ],
                           )),
                     ),

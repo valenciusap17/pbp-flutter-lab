@@ -153,10 +153,12 @@ class _TambahBudgetPageState extends State<TambahBudgetPage> {
                           print(pickedDate);
                           String formattedDate =
                               DateFormat('yyyy-MM-dd').format(pickedDate);
+
                           print(formattedDate);
                           setState(() {
                             _date =
                                 formattedDate; //set output date to TextField value.
+                            controllerTextFieldForDate.text = formattedDate;
                           });
                         } else {
                           print("Date is not selected");

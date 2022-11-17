@@ -49,7 +49,7 @@ Perintah Navigator.push membuat sebuah route baru untuk pindah ke halaman selanj
 * OnPressed: event yang akan melaksanakan suatu kegiatan (sesuai dengan kode yang dibuat) ketika dipencet. Biasanya digunakan untuk sebuah tombol yang dipencet
 * onTap: event yang akan melaksanakan suatu kegiatan (sesuai dengan kode yang dibuat) ketika sebuah objek yang terletak di posisi tertentu di tekan (gestures capture)
 * onChanged: event yang akan melaksanakan suatu kegiatan (sesuai dengan kode yang dibuat) ketika nilai dari sebuah TextField diubah 
-dan lain-lain
+* dan lain-lain
 ## Jelaskan bagaimana cara kerja Navigator dalam "mengganti" halaman dari aplikasi Flutter ##
 Cara kerja navigator utnuk mengganti halaman adalah dengan membuat sebuah route baru yang digunakan untuk pergi ke laman baru yang dituju. Kemudian route-route yang kita punya itu akan disimpan ke dalam sebuah stack, maka untuk pergi ke route baru yang ingin kita tuju kita harus melakukan push. Kemudian untuk kembali ke laman sebelumnya yang perlu kita lakukan adalah pop, sehingga route baru akan dihilangkan dan kita kembali ke laman awal yang kita miiliki.
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas ##

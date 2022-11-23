@@ -73,3 +73,34 @@ List<AllDataKeeped> allList = [];
 Lalu kita menambahkan file dataBudget.dart yang merupakan sebuah form untuk menjadi halaman dimana pengguna nantinya akan memberikan input. Pada bagian ini kita mengambil setiap data yang kita perlukan untuk membuat objek baru untuk class yang sudha kita buat tadi dan kita taruh ke dalam list yang sudah sempat kita buat juga.
 
 Setelah kita membuat objek yang kita inginkan di dataBudget.dart, maka kita sudah memiliki isi di dalam list data yang isinya ingin kita tampilkan. Untuk melakukan hal tersebut saya membuat dataBudget.dart yang isinya adalah mengambil setiap data yang ada di dalam list yang isinya sudah sesuai dengan yang kita inginkan dan kita tampilkan dengan menggunakan widget-widget yang ada. 
+
+# Tugas 9 PBP #
+
+##  Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON? ##
+Kita tidak perlu membuat data JSON terlebih dahulu ketika kita mau melakukan pengambilan data JSON. kita dapat membuat sebuah map dinamis dari JSON yang kemudian nilainya dapat kita akses. Namun hal tersebut dapat mengakibatkan sebuah eror ketika ada bagian yang hilang dan pada map yang kita buat sehingga menimbulkan eror ketika kita akses nilainya. Dengan menggunakan model, kita terhindar dari hal-hal tersebut sehingga membuat pembuatan model lebih baik.
+
+## Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya ##
+* Column: widget yang digunakan untuk memposisikan widget-widget yang ada secara vertikal
+* Padding: widget untuk menambahkan sebuah space kosong di di sekitar widget-widget lain.
+* Aligning widget: widget yang digunakan untuk mengatur tata letak. Properti yang saya gunakan adalah mainAxisAlignment yang berfungsi untuk mengatur letak widget pada sebuah baris dan crossAxisAlignment yang berfungsi untuk mengatur letak widget pada sebuah kolom
+* TextStyle: widget untuk melakukan manipulasi jenis font, ukuran, warna, dan lainnnya
+* Row: widget yang digunakan untuk memposisikan widget-widget yang ada secara horizontal
+* Appbar: widget yang digunakan sebagai menu penunjuk.
+* TextButton: widget untuk membuat sebuah button yang di dalamnya bisa kita taruh widget text
+* BoxDecorations: widget untuk menambahkan dekorasi kepada container yang kita miliki
+* ListView: membuat widget untuk dapat melakukan scrolling
+* Inkwell: widget yang memunculkan sebuah respons ketika di pencet oleh user (interaksi user)
+* checkbox: widget untuk memunculkan sebuah checkbox
+* FutureBuilder: widget yang membangun isi dirinya sendiri berdasarkan interaksi snapshot terbaru dengan masa depan
+* Expanded: widget yang menambah space yang dimiliki oleh sebuah baris atau kolom sehingga isi yang dimiliki memiliki ruang yang cukup
+
+
+## Jelaskan mekanisme pengambilan data dari json hingga dapat ditampilkan pada Flutter ##
+Pertama-tama kita memberikan value API ke dalam url yang kemudian akan diambil datanya dengan menggunakan HTTP. Setelah itu kita melakukan decode data yang kita dapatkan menggunakan ```json.decode()``` menjadi bentuk json. Kemudian dari data json tersebut kita ubah ke dalam bentuk object watchlist yang kita miliki. Kemudian dengan menggunakan widget FutureBuilder, kita akan memanggil function ```fetchMyWatchList()``` yang gunanya adalah melakukan hal-hal yang sudah dijelaskan sebelumnya
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas ##
+Pertama-tama kita membuat sebuah file baru bernama ```fetch_watchlist.dart``` yang isinya adalah kode function ```fetchMyWatchList()```untuk melakukan fetch data dari API yang diinginkan. Kemudian file tersebut ditaruh ke dalam sebuah folder bernama ```fetch```
+
+Lalu kita membuat sebuah page baru yang isinya adalah menampilkan setiap data yang sudah kita dapatkan sebagia hasil fetch dari API tadi. pada bagian ini kita hanya menampilkan judul dan status watch seperti yang diinstruksikan. Saya membuat container yang berisi judul dengan status watch yang dapat ditekan dan akan masuk ke dalam page berisi detail setiap object yang kita dapatkan. Tak lupa juga mengimplementasikan checkbox untuk mengganti setiap outline container yang kita miliki bergantung dengan status sudah ditonton atau belum. Kita melakukan implementasinya kodenya pada file bernama ```MyWatchList_page.dart```. Pengimplementasiannya saya menggunakan widget ```FutureBuilder``` yang kemudian mengambil data yang sudah didapatkan kemudian menggunakan ```ListView``` untuk membuat efek dapat melakukan scrolling. Selanjutnya kita menggunakan widget ```Inkwell``` yang gunanya adalah membuat container yang kita miliki dapat dipencet dan melakukan router ke page lain selagi mempassing data yang dimiliki container tersebut. 
+
+Setelah itu, kita perlu menghadirkan sebuah page yang berisi detail dari object yang sudah kita dapatkan. Untuk mengimplementasikannya kita mmebuat sebuah file baru bernama ```watchlist_detail.dart``` dan membuat tampilan sesuai dengan yang diinginkan dengan mengakses data yang sudah dipassing tadi melalui file ```MyWatchList_page.dart```.

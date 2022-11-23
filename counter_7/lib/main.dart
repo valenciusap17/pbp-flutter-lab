@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:counter_7/dataBudget.dart';
+import 'package:counter_7/page/dataBudget.dart';
 import 'package:counter_7/drawer.dart';
-import 'package:counter_7/tambahBudget.dart';
+import 'package:counter_7/page/tambahBudget.dart';
 
 void main() {
   runApp(const MyApp());

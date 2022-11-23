@@ -1,6 +1,7 @@
 import 'package:counter_7/main.dart';
-import 'package:counter_7/dataBudget.dart';
-import 'package:counter_7/tambahBudget.dart';
+import 'package:counter_7/page/MyWatchList_page.dart';
+import 'package:counter_7/page/dataBudget.dart';
+import 'package:counter_7/page/tambahBudget.dart';
 import 'package:flutter/material.dart';
 
 class DrawerApplication extends StatelessWidget {
@@ -42,6 +43,16 @@ class DrawerApplication extends StatelessWidget {
               );
             },
           ),
+          ListTile(
+            title: const Text('My Watch List'),
+            onTap: () {
+              // Route menu ke halaman form
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => MyWatchListPage()),
+              );
+            },
+          )
         ],
       ),
     );
